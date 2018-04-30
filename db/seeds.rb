@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Job.create(user: 1, size: "big", urgency: "urgent", pick_up: "", drop_off: "", charge:"", dexription:"")
+Job.create(user: 1, size: "big", urgency: "urgent", pick_up: "", drop_off: "", charge:"", dexription:"")
+Job.create(user: 1, size: "big", urgency: "urgent", pick_up: "", drop_off: "", charge:"", dexription:"")
+Job.create(user: 1, size: "big", urgency: "urgent", pick_up: "", drop_off: "", charge:"", dexription:"")
+Job.create(user: 1, size: "big", urgency: "urgent", pick_up: "", drop_off: "", charge:"", dexription:"")
