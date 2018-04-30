@@ -1,2 +1,34 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome to hamba</h1>
+
+
+<h1>Jobs</h1>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Size</th>
+      <th>Urgency</th>
+      <th>Pick up</th>
+      <th>Drop off</th>
+      <th>Charge</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| if i < 5 %>
+        <% i += 1%>
+      <tr>
+        <td><%= job.user %></td>
+        <td><%= job.size %></td>
+        <td><%= job.urgency %></td>
+        <td><%= job.pick_up %></td>
+        <td><%= job.drop_off %></td>
+        <td><%= job.charge %></td>
+        <td><%= job.description %></td>
+        <td><%= link_to 'Show', job %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
