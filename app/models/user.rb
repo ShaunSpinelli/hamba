@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
         
   has_many :jobs
-  belongs_to_many :moves
+  has_many :moves
 end
