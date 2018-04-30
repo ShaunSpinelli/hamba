@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: 
+  size: MyString
+  urgency: MyString
+  pick_up: MyText
+  drop_off: MyText
+  charge: 1
+  description: MyText
+
+two:
+  user: 
+  size: MyString
+  urgency: MyString
+  pick_up: MyText
+  drop_off: MyText
+  charge: 1
+  description: MyText
