@@ -17,19 +17,26 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
-
   end
 
   # GET /jobs/1/edit
   def edit
   end
-
+  
+  #post
+  def makemove
+    @move = Move.new
+    @move.user = current_user
+    @move.job = Job.find(params[:id])
+    @move.save
+    redirect_to root_path
+  end
   # POST /jobs
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-
+ 
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
