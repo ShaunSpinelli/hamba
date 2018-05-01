@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
+  has_many :moves
   has_one :pick_up
   has_one :drop_off
   accepts_nested_attributes_for :pick_up
