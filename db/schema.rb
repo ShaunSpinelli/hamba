@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430033033) do
+ActiveRecord::Schema.define(version: 20180501042318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20180430033033) do
     t.integer "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_id"
+    t.index ["job_id"], name: "index_drop_offs_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -32,10 +34,6 @@ ActiveRecord::Schema.define(version: 20180430033033) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "pick_up_id"
-    t.bigint "drop_off_id"
-    t.index ["drop_off_id"], name: "index_jobs_on_drop_off_id"
-    t.index ["pick_up_id"], name: "index_jobs_on_pick_up_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -56,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180430033033) do
     t.integer "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_id"
+    t.index ["job_id"], name: "index_pick_ups_on_job_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20180430033033) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "jobs", "drop_offs"
-  add_foreign_key "jobs", "pick_ups"
+  add_foreign_key "drop_offs", "jobs"
   add_foreign_key "jobs", "users"
   add_foreign_key "moves", "jobs"
   add_foreign_key "moves", "users"
+  add_foreign_key "pick_ups", "jobs"
 end
