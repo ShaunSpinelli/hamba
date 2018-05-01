@@ -19,7 +19,7 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.user %></td>
+        <td><%= job.user.email %></td>
         <td><%= job.size %></td>
         <td><%= job.urgency %></td>
         <td><%= job.pick_up %></td>
