@@ -1,3 +1,3 @@
 class DropOff < ApplicationRecord
-    belongs_to :job, optional: true
+    belongs_to :job
 end
