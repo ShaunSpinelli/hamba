@@ -29,7 +29,7 @@ class JobsController < ApplicationController
     @move.user = current_user
     @move.job = Job.find(params[:id])
     @move.save
-    redirect_to root_path
+    redirect_to @move.job
   end
   # POST /jobs
   # POST /jobs.json
