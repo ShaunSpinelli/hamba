@@ -8,4 +8,10 @@ module JobsHelper
         end
     end
     
+    def job_applications(job)
+        if job.user == current_user
+            Move.where(job_id: job.id)
+        end
+    end
+
 end
