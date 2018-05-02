@@ -23,6 +23,14 @@ class JobsController < ApplicationController
   def edit
   end
   
+ #post
+  def confirmmove
+    @move = Move.find(params[:id])
+    @move.confirmed = true
+    @move.save
+    redirect_to @move.job    
+  end
+
   #post
   def makemove
     @move = Move.new
