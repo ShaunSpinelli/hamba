@@ -7,6 +7,16 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    # filtering_params(params).each do |key, value|
+    #   @jobs = @jobs.public_send(key, value) unless value.empty?
+    # end 
+    if filtering_params(params)[:size]
+      @jobs = Job.size(filtering_params(params)[:size])
+    end
+    if filtering_params(params)[:urgency]
+      @jobs = @jobs + Job.urgency(filtering_params(params)[:urgency])
+    end
+
   end
 
   # GET /jobs/1
@@ -91,6 +101,10 @@ class JobsController < ApplicationController
       params.require(:job).permit(:user_id, :size, :urgency,:charge, :description, 
         pick_up_attributes:[:address, :city, :state, :postcode],
         drop_off_attributes:[:address, :city, :state, :postcode])
+    end
+    
+    def filtering_params(params)
+      params.slice(:size, :urgency)
     end
     
 end
