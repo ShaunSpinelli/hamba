@@ -1,5 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="size">Size:</label>
+        <input type="text" name="size" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="urgency">Urgency:</label>
+        <input type="text" name="urgency" class="form-control">
+      </div>
+      <input type="submit" value="Filter" class="btn btn-default">
+    </form>
+  </div>
+</div>
+
+
+
 <h1>Jobs</h1>
 
 <table>
@@ -19,11 +37,11 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.user.email %></td>
+        <td><%= job.user.first_name %></td>
         <td><%= job.size %></td>
         <td><%= job.urgency %></td>
-        <td><%= job.pick_up %></td>
-        <td><%= job.drop_off %></td>
+        <td><%= job.pick_up.full_address %></td>
+        <td><%= job.drop_off.full_address %></td>
         <td><%= job.charge %></td>
         <td><%= job.description %></td>
         <td><%= link_to 'Show', job %></td>
