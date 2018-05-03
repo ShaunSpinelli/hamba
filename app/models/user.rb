@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :moves
   after_create :send_welcome
 
-
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   
   def send_welcome
     UserMailer.send_signup_email(self).deliver
