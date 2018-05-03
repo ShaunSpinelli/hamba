@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501042318) do
+ActiveRecord::Schema.define(version: 20180503000018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20180501042318) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["job_id"], name: "index_drop_offs_on_job_id"
   end
 
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 20180501042318) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["job_id"], name: "index_pick_ups_on_job_id"
   end
 
