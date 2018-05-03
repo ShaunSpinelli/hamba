@@ -6,4 +6,13 @@ class User < ApplicationRecord
         
   has_many :jobs
   has_many :moves
+
+  after_create :send_welcome
+
+
+
+  after_create :send_welcome
+  def send_welcome
+    UserMailer.send_signup_email(self).deliver
+  end
 end
