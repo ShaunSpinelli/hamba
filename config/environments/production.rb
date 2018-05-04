@@ -92,6 +92,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
       api_key: ENV['MAILGUN_API'],
-      domain: 'sandboxddc63c0ab4f647d58956eaf024d3b9b5.mailgun.org'
+      domain: 'www.secret-bayou-78543.herokuapp.com/'
   }
 end
