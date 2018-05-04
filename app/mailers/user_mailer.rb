@@ -10,9 +10,14 @@ class UserMailer < ApplicationMailer
     def send_job_notification_email(move)
         @user = move.job.user
         @move = move
-        mail(:to =>'shaun.spinelli@gmail.com', :subject => 'Some one is interersted in your job')
+        mail(:to => @user.email, :subject => 'Some one is interersted in your job')
     end
     
+    def send_job_confirmation_email(move)
+        @move = move
+        @user = move.user
+        mail(:to => @user.email, :subject => "Your offer has been accepted")    
+    end
 
 
 
