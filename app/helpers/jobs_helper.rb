@@ -20,12 +20,14 @@ module JobsHelper
     def job_applications(job)
         if Move.find_by(job_id: job.id) != nil
             content_tag(:div, class: "") do
+                concat content_tag(:p,"Users interested")
                 Move.where(job_id: job.id).each do |move|
-                    concat link_to move.user.email, user_path(move.user)
+                    concat link_to move.user.email, user_path(move.user) 
+                    concat content_tag(:p, "")
                 end
             end
         else
-            return content_tag(:p, "no want to move your stuff")
+            return content_tag(:p, "no wants too move your stuff")
         end
     end
 
