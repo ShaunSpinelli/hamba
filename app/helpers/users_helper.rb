@@ -11,10 +11,9 @@ module UsersHelper
     def guest(user)
         moves = Move.where(user_id: user.id) 
         moves.each do |move|
-            if move.job.user = current_user # just finding the first one if current users if mover and job poster have more the one move with eachother
-                return link_to 'Confirm Job', confirmmove_jobs_path(move.id), method: :post
+            if move.job.user = current_user 
+                return content_tag(:p, "You've worked with #{user.full_name} before")
             end
-            return content_tag(:p, "no want to move your stuff")
         end
     end
 
