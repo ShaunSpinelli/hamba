@@ -36,7 +36,7 @@ class JobsController < ApplicationController
  #post
   def confirmmove
     @move = Move.find(params[:id])
-    @move.confirmed = true
+    @move.confirmed = params[:confirm]
     @move.save
     redirect_to @move.job    
   end
