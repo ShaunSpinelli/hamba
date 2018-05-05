@@ -16,7 +16,7 @@ class UserMailer < ApplicationMailer
     def send_job_confirmation_email(move)
         @move = move
         @user = move.user
-        @move.conifrmation ? @msg = 'declined!' : @msg = 'accepted!'
+        @move.confirmed ? @msg = 'declined!' : @msg = 'accepted!'
         mail(:to => @user.email, :subject => "Your offer has been #{@msg}")    
     end
 
