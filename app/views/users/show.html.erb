@@ -12,7 +12,7 @@
 
 <p>
   <strong>Profile pic:</strong>
-  <%= @user.profile_pic %>
+    <%=image_tag @user.profile_pic_url(:medium) %>
 </p>
 
 <p>
