@@ -1,0 +1,20 @@
+---
+development:
+  cloud_name: shaundev
+  api_key: <%= ENV['CLOUDINARY_KEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_API'] %>
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: shaundev
+  api_key: '481124934654959'
+  api_secret: EwbR9livBY4LtdmvcsvsM3xiFO0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: shaundev
+  api_key: '481124934654959'
+  api_secret: EwbR9livBY4LtdmvcsvsM3xiFO0
+  enhance_image_tag: true
+  static_image_support: false
+
