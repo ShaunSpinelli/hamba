@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :moves
   after_create :send_welcome
+  mount_uploader :profile_pic, ProfileImageUploader
 
   def full_name
     "#{first_name} #{last_name}"
