@@ -1,10 +1,11 @@
 class Job < ApplicationRecord
   belongs_to :user
-  has_many :moves
-  has_one :pick_up
-  has_one :drop_off
+  has_many :moves , :dependent => :destroy
+  has_one :pick_up , :dependent => :destroy
+  has_one :drop_off, :dependent => :destroy
   accepts_nested_attributes_for :pick_up
   accepts_nested_attributes_for :drop_off
+  resourcify
 
   # scope(:size, -> (size) { where("size like ?", "%#{size}%")})
 
