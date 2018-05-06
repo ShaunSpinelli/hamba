@@ -69,6 +69,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+    return not_authorised_redirect unless current_user.can_update?(@job)
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
@@ -83,6 +84,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+    return not_authorised_redirect unless current_user.can_destroy?(@job)
     @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
@@ -105,6 +107,11 @@ class JobsController < ApplicationController
     
     def filtering_params(params)
       params.slice(:size, :urgency)
+    end
+
+    def not_authorised_redirect
+      flash[:notice] = "You are not auhtorised"
+      redirect_to jobs_path
     end
     
 end

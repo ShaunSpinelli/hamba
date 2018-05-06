@@ -13,6 +13,7 @@
     <%= link_to('Login', new_user_session_path,method: :get) if !user_signed_in? %>
     <%= link_to "Create new job", new_job_path%>
     <%= link_to "View Jobs", jobs_path%>
+    <%= admin_menu() %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

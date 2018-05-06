@@ -58,3 +58,6 @@ gem "carrierwave", "~> 1.2"
 
 # Added at 2018-05-05 10:23:39 +1000 by abc12:
 gem "cloudinary", "~> 1.9"
+
+# for authentication
+gem "rolify"

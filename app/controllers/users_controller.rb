@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    not_authorised_redirect unless current_user.has_role? :admin
     @users = User.all
   end
 
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    return not_authorised_redirect unless current_user == @user   
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -55,6 +57,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    return not_authorised_redirect unless current_user.can_destroy_user?(@user)    
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -70,6 +73,11 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :profile_pic, :role, :rating)
+      params.require(:user).permit(:first_name, :last_name, :profile_pic, :rating)
+    end
+
+    def not_authorised_redirect
+      flash[:notice] = "You are not auhtorised"
+      redirect_to root_path
     end
 end
