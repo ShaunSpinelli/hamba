@@ -87,11 +87,24 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  # config.active_record.dump_schema_after_migration = false
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => ENV['SENDGRID_USERNAME'],
+  #   :password => ENV['SENDGRID_PASSWORD'],
+  #   :domain => 'yourdomain.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-      api_key: ENV['MAILGUN_API'],
-      domain: 'www.secret-bayou-78543.herokuapp.com/'
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "example.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 end
