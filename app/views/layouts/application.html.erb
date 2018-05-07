@@ -6,12 +6,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   </head>
 
   <body>
     <%= link_to('Logout', destroy_user_session_path,method: :delete) if user_signed_in? %>
     <%= link_to('Login', new_user_session_path,method: :get) if !user_signed_in? %>
-    <%= link_to "Create new job", new_job_path%>
+    <%= link_to "New job", new_job_path%>
     <%= link_to "View Jobs", jobs_path%>
     <%= admin_menu() %>
     <p class="notice"><%= notice %></p>
@@ -20,4 +21,49 @@
   </body>
   <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  var
+    $headers     = $('body > h3'),
+    $header      = $headers.first(),
+    ignoreScroll = false,
+    timer
+  ;
+
+  // Preserve example in viewport when resizing browser
+  $(window)
+    .on('resize', function() {
+      // ignore callbacks from scroll change
+      clearTimeout(timer);
+      $headers.visibility('disable callbacks');
+
+      // preserve position
+      $(document).scrollTop( $header.offset().top );
+
+      // allow callbacks in 500ms
+      timer = setTimeout(function() {
+        $headers.visibility('enable callbacks');
+      }, 500);
+    })
+  ;
+  $headers
+    .visibility({
+      // fire once each time passed
+      once: false,
+
+      // don't refresh position on resize
+      checkOnRefresh: true,
+
+      // lock to this element on resize
+      onTopPassed: function() {
+        $header = $(this);
+      },
+      onTopPassedReverse: function() {
+        $header = $(this);
+      }
+    })
+  ;
+});
+</script>
 </html>
