@@ -17,12 +17,12 @@
 
 <p>
   <strong>Pick up:</strong>
-  <%= @job.pick_up.city %>
+  <%= @job.pick_up.full_address %>
 </p>
 
 <p>
   <strong>Drop off:</strong>
-  <%= @job.drop_off.city %>
+  <%= @job.drop_off.full_address %>
 </p>
 
 <p>
@@ -38,5 +38,23 @@
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
 
-<%= job_options(@job)%>
 
+<% if @job.user == current_user && job_applications(@job) != nil%>
+  <div class="ui card">
+    <% job_applications(@job).each do |move|%>
+      <div class="content">
+      <%=content_tag(:div, "#{move.user.full_name}", class:"header")  %> 
+        <div class="extra content">
+          <div class="ui two buttons">
+            <%=link_to 'Confirm Job', confirmmove_jobs_path({:id => move.id, :confirm => 'true'}), method: :post, class:"ui basic green button"%>
+            <%=link_to 'Decline job', confirmmove_jobs_path({:id => move.id, :confirm => 'false'}), method: :post,class:"ui basic red button"%>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+<% elsif @job.user == current_user %>
+  <%=content_tag(:div, "No one is interrested", class:"header")  %>
+<% else %>
+<%= apply_job(@job)%>
+<%end%>

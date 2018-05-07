@@ -18,18 +18,11 @@ module JobsHelper
     end
     
     def job_applications(job)
-        if Move.find_by(job_id: job.id) != nil
-            content_tag(:div, class: "") do
-                concat content_tag(:p,"Users interested")
-                Move.where(job_id: job.id).each do |move|
-                    concat content_tag(:p, "#{move.user.full_name}")                    
-                    concat link_to 'Confirm Job', confirmmove_jobs_path({:id => move.id, :confirm => 'true'}), method: :post
-                    concat link_to 'Decline job', confirmmove_jobs_path({:id => move.id, :confirm => 'false'}), method: :post                  
-                    concat content_tag(:p, "")
-                end
-            end
+        if Move.find_by(job_id: job.id) != nil  
+               @moves = Move.where(job_id: job.id)
+               return @moves
         else
-            return content_tag(:p, "no wants too move your stuff")
+            return nil
         end
     end
 
