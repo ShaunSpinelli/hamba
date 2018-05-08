@@ -1,60 +1,131 @@
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+
 <p id="notice"><%= notice %></p>
+<div class='ui two column doubling grid'>
+  <div class='column'>
+    <div class='ui two column doubling grid'>
+      <div class='column'>
+        <h2 class="ui block header">
+        <img src="/images/avatar2/large/patrick.png" class="ui circular image">
+          <%= @job.user.full_name%>
+        </h2>
+         <div class="ui raised segment">
+      <a class="ui blue ribbon label">Deatils</a>
+      <span><%=@job.description%></span>
+      
+        
+        <div class='ui mini statistics'>
+          <div class="statistic">
+              <div class="value">
+                <i class="home icon"></i> Pick Up
+              </div>
+              <div class="label"> <%=@job.pick_up.address%> <%=@job.pick_up.city%>  
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                <i class="home icon"></i> Drop off
+              </div>
+              <div class="label"> <%=@job.drop_off.address%>  <%=@job.drop_off.city%> 
+              </div>
+            </div>
+          </div>
+        </div>
+         </div>
+      <div class='column'>
+        <div class='ui tiny statistics'>
+          <div class="statistic">
+            <div class="value">
+              <i class="dollar icon"></i> <%= @job.charge%>.00
+            </div>
+            <div class="label">
+              
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+            <i class="shipping fast icon"></i>
+               Not URGENT
+            </div>
+            <div class="label">
+              
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <i class="box icon"></i> <%= @job.size%>
+            </div>
+            <div class="label">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @job.user.first_name   %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @job.size %>
-</p>
-
-<p>
-  <strong>Urgency:</strong>
-  <%= @job.urgency %>
-</p>
-
-<p>
-  <strong>Pick up:</strong>
-  <%= @job.pick_up.full_address %>
-</p>
-
-<p>
-  <strong>Drop off:</strong>
-  <%= @job.drop_off.full_address %>
-</p>
-
-<p>
-  <strong>Charge:</strong>
-  <%= @job.charge %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
-
-
-<% if @job.user == current_user && job_applications(@job) != nil%>
+    <% if @job.user == current_user && job_applications(@job) != nil%>
   <div class="ui card">
     <% job_applications(@job).each do |move|%>
       <div class="content">
       <%=content_tag(:div, "#{move.user.full_name}", class:"header")  %> 
         <div class="extra content">
           <div class="ui two buttons">
-            <%=link_to 'Confirm Job', confirmmove_jobs_path({:id => move.id, :confirm => 'true'}), method: :post, class:"ui basic green button"%>
-            <%=link_to 'Decline job', confirmmove_jobs_path({:id => move.id, :confirm => 'false'}), method: :post,class:"ui basic red button"%>
+            <%=link_to 'Confirm', confirmmove_jobs_path({:id => move.id, :confirm => 'true'}), method: :post, class:"ui basic green button"%>
+            <%=link_to 'Decline', confirmmove_jobs_path({:id => move.id, :confirm => 'false'}), method: :post,class:"ui basic red button"%>
           </div>
         </div>
       </div>
     <%end%>
   </div>
 <% elsif @job.user == current_user %>
-  <%=content_tag(:div, "No one is interrested", class:"header")  %>
+  <%=content_tag(:div, "No one has shown interest yet", class:"header")  %>
+  <%= link_to "Edit Job", edit_job_path(@job)%>
 <% else %>
 <%= apply_job(@job)%>
 <%end%>
+
+  </div>
+
+    <div class="column">
+      <div id="map"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+      function initMap() {
+        var pickup = {lat: <%=@job.pick_up.latitude%>, lng: <%=@job.pick_up.longitude%>};
+        var drop_off = {lat:  <%=@job.drop_off.latitude%>, lng:  <%=@job.drop_off.longitude%>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: pickup
+        });
+        var marker = new google.maps.Marker({
+          position: pickup,
+          map: map,
+          label:"A",
+          animation: google.maps.Animation.DROP
+        });
+        var marker1 = new google.maps.Marker({
+          position: drop_off,
+          map: map,
+          label:"B",
+          animation: google.maps.Animation.DROP          
+        });
+      }
+    </script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD7ukOvbS7pNb-yh3DqoO-umj8hB2jLRk&callback=initMap">
+</script>

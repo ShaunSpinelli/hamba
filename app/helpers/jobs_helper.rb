@@ -13,7 +13,7 @@ module JobsHelper
         if Move.where(user_id: current_user.id , job_id: job.id).exists?
             return content_tag(:p, "You have applied for this job")
         else
-            return link_to 'Apply For Job', makemove_jobs_path(@job), method: :post
+            return link_to 'Apply For Job', makemove_jobs_path(@job), method: :post, class: 'ui positive button'
         end
     end
     
