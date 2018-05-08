@@ -1,35 +1,34 @@
 <h1>Welcome to Hamba <%=@user.first_name if @user%></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Size</th>
-      <th>Urgency</th>
-      <th>Pick up</th>
-      <th>Drop off</th>
-      <th>Charge</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.user.email %></td>
-        <td><%= job.size %></td>
-        <td><%= job.urgency %></td>
-        <td><%= job.pick_up %></td>
-        <td><%= job.drop_off %></td>
-        <td><%= job.charge %></td>
-        <td><%= job.description %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="ui cards" style="padding: 1.5rem;">
+  <% @jobs.each do |job| %>
+    <div class="card" style="padding: 0rem;">
+      <div class="content">
+        <%=tag_colour(job)%>
+        <div class='ui tiny statistics'>
+          <div class="statistic">
+            <div class="value">
+              <i class="dollar icon"></i> <%= job.charge%>
+            </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                <%= distance(job) %> km
+              </div>
+              <div class="label">
+                <%= job.pick_up.city %>
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                <i class="box icon"></i> <%= job.size%>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+          <%= link_to 'Show', job , class: "ui bottom attached positive button"%>
+    </div>
+  <% end %>
+</div>
 

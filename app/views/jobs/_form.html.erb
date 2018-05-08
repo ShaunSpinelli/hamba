@@ -58,13 +58,13 @@
 
   <div class="field">
     <%= f.label :size %>
-    <%= f.select :size, options_for_select(['big','medium','small','tiny']), id: :job_size %>
+    <%= f.select :size, options_for_select(['Huge','Big','Medium','Small']), id: :job_size %>
   </div>
   
 
   <div class="field">
     <%= f.label :urgency %>
-    <%= f.select :urgency, options_for_select(['Very','a little']) , id: :job_urgency %>
+    <%= f.select :urgency, options_for_select(['Very Urgent','Not Urgent']) , id: :job_urgency %>
   </div>
 
   <div class="field">

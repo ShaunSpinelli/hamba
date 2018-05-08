@@ -11,8 +11,7 @@
   <div class='column'>
     <div class='ui two column doubling grid'>
       <div class='column'>
-        <h2 class="ui block header">
-        <img src="/images/avatar2/large/patrick.png" class="ui circular image">
+        <h2 class="ui center aligned block header">
           <%= @job.user.full_name%>
         </h2>
          <div class="ui raised segment">
@@ -51,7 +50,7 @@
           <div class="statistic">
             <div class="value">
             <i class="shipping fast icon"></i>
-               Not URGENT
+               <%= @job.urgency%> 
             </div>
             <div class="label">
               
