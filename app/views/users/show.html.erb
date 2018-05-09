@@ -1,26 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>Profile pic:</strong>
+<div class="ui card">
+  <a class="image" href="#">
     <%=image_tag @user.profile_pic_url(:medium) %>
-</p>
+  </a>
+  <div class="content">
+    <a class="header" href="#"><%= @user.full_name %></a>
+    <div class="meta">
+      <a>Rating:<%= @user.rating %></a>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @user.rating %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> |
 <%= visiter_check(@user)%>
 
