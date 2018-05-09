@@ -71,7 +71,12 @@
   <div class="ui card">
     <% job_applications(@job).each do |move|%>
       <div class="content">
+    
+       <%=image_tag move.user.profile_pic_url(:medium), class:"right floated tiny ui image" %>
       <%=content_tag(:div, "#{move.user.full_name}", class:"header")  %> 
+      <div class="meta">
+        Rating: <%=move.user.rating%>
+      </div>
         <div class="extra content">
           <div class="ui two buttons">
             <%=link_to 'Confirm', confirmmove_jobs_path({:id => move.id, :confirm => 'true'}), method: :post, class:"ui basic green button"%>
