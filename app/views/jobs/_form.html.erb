@@ -1,4 +1,4 @@
-<%= form_for (setup_job(job)) do |f| %>
+<%= form_for (setup_job(job)),:html => {class: 'ui form'}  do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -11,79 +11,79 @@
     </div>
   <% end %>
 
-
+<div class='ui two column doubling grid'>
+<div class="column">
   <%= f.fields_for :pick_up do |p| %>
-  <p>Pick Up Location</p>
+  <h4 class="ui header">Pick Up Location</h4>
   <div class="field">
-    <%= p.label :address %>
-    <%= p.text_field :address %>
+    <%= p.text_field :address, placeholder: "Address", style: "max-width: 300px;" %>
   </div>
   <div class="field">
-    <%= p.label :city %>
-    <%= p.text_field :city %>
+    <%= p.text_field :city, placeholder: "City", style: "max-width: 200px;" %>
   </div>
   <div class="field">
-    <%= p.label :state %>
-    <%= p.text_field :state %>
+    <%= p.text_field :state,placeholder: "State",style: "max-width: 100px;" %>
   </div>
   <div class="field">
-    <%= p.label :postcode %>
-    <%= p.text_field :postcode %>
+    <%= p.text_field :postcode,placeholder: "Postcode",style: "max-width: 100px;" %>
   </div>
   <% end %>
+  </div>
 
 
- 
+ <div class="column">
   <%= f.fields_for :drop_off do |p| %>
-  <p>Drop off Location</p>  
+  <h4 class="ui header">Drop Off Location</h4>  
    <div class="field">
-    <%= p.label :address %>
-    <%= p.text_field :address %>
+    <%= p.text_field :address,placeholder: "Address", style: "max-width: 300px;" %>
   </div>
   <div class="field">
-    <%= p.label :city %>
-    <%= p.text_field :city %>
+
+    <%= p.text_field :city,placeholder: "City" , style: "max-width: 200px;"%>
   </div>
   <div class="field">
-    <%= p.label :state %>
-    <%= p.text_field :state %>
+    <%= p.text_field :state,placeholder: "State", style: "max-width: 100px;" %>
   </div>
   <div class="field">
-    <%= p.label :postcode %>
-    <%= p.text_field :postcode %>
+    <%= p.text_field :postcode,placeholder: "Postocde", style: "max-width: 100px;" %>
   </div>
   <% end %>
 
-  <p>Job Information</p>
+ </div>
+
+  <div class="column">
+  <h4 class="ui header">Job Information</h4>
 
   <div class="field">
-    <%= f.label :size %>
-    <%= f.select :size, options_for_select(['Huge','Big','Medium','Small']), id: :job_size %>
+  <h5 class="ui header">Item Size</h5>    
+    <%= f.radio_button :size, 'Huge' , id: :job_size, class: "ui radio checkbox"%> Huge<br />
+    <%= f.radio_button :size, 'Medium', id: :job_size, class: "ui radio checkbox" %> Medium<br />
+    <%= f.radio_button :size, 'Small', id: :job_size, class: "ui radio checkbox" %> Small<br />
   </div>
   
-
   <div class="field">
-    <%= f.label :urgency %>
-    <%= f.select :urgency, options_for_select(['Very Urgent','Not Urgent']) , id: :job_urgency %>
+  <h5 class="ui header">Urgency</h5>        
+    <%= f.radio_button :urgency, 'Very Urgent' ,id: :job_urgency %>Very Urgent<br />
+    <%= f.radio_button :urgency,'Not Urgent',id: :job_urgency %>Not Urgent<br />
+  </div>
+  </div>
+  <div class="column">
+      
+      <div class="field">
+        <h4 class="ui header">Description</h4>
+          <%= f.text_area :description, id: :job_description,style: "max-height: 20px;",style: "max-width: 300px;",placeholder: "Additional information..." %>
+        </div>
   </div>
 
-  <div class="field">
-    <%= f.label :charge %>
-    <%= f.number_field :charge, id: :job_charge %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, id: :job_description %>
-  </div>
-
-
-
-
-  <div class="actions">
+    <div class="column">
+        <div class="field">
+        <h4 class="ui header">Payment</h4>
+          <%= f.number_field :charge, id: :job_charge,  style: "max-width: 100px;"%>
+      </div>
+    </div>
+ 
+</div>
+  <div class="actions" style="padding-top: 1rem;">
     <%= f.submit %>
   </div>
-<% end %>
-
-
- 
+  <% end %>
