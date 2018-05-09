@@ -1,24 +1,64 @@
 # README
+# Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Summary
+2. Installation
+3. Requirements
+4. User Stories
+5. Wireframing
+6. Workflow Diagram
+7. Entity Relationship Diagram
+8. List of Tools Used
+9. Project Plan
+10. Future Updates
 
-Things you may want to cover:
+------------------
 
-* Ruby version
+Link : 
+## 1. Summary
+This app was designed as part of the CoderAcademy assignment to build a two-sided marketplace.
 
-* System dependencies
+PROBLEM DEFINITION
 
-* Configuration
 
-* Database creation
+SOLUTION
 
-* Database initialization
 
-* How to run the test suite
+-----------------------
+## 2 Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+--------------
 
-* Deployment instructions
+## 3. Requirements
 
-* ...
+-----------------------
+## 4. User Stories
+
+
+-----------------------
+
+## 5. Wireframing
+
+
+-----------------------
+
+## 6. Workflow Diagram
+
+
+-------------
+
+## 7. Entity Relationship Diagram
+
+
+----------------
+
+## 8. List of Tools Used
+
+------------------
+
+## 9. Project Plan
+
+
+-------------------
+## 10. Bugs/Future Updates
+
