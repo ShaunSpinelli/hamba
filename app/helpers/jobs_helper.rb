@@ -40,7 +40,7 @@ module JobsHelper
         link_to "Your Job Postings", jobs_path(user_id: current_user.id),class: 'ui button' unless current_user.jobs.empty?
     end
     
-    def pending_complete(job)
+    def pending(job)
         if job.moves.where(confirmed: true).exists?
             return content_tag(:a,"Pending", class:"ui orange right ribbon label")
         end
