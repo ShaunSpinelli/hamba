@@ -15,6 +15,7 @@ module UsersHelper
                 return content_tag(:p, "You've worked with #{user.full_name} before")
             end
         end
+        return content_tag(:p, "You've have not worked with #{user.full_name} before")        
     end
 
     def owner(user)
