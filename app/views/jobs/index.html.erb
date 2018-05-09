@@ -2,22 +2,36 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="size">Size:</label>
-        <input type="text" name="size" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="urgency">Urgency:</label>
-        <input type="text" name="urgency" class="form-control">
-      </div>
-      <input type="submit" value="Filter" class="btn btn-default">
-    </form>
-  </div>
-</div>
 
+
+  <form class="ui form">
+    <div class="threes fields">
+      <div class="ui fluid search selection dropdown" style="max-width:200px;">
+          <div class="default text">Select Size</div>
+            <input type="hidden" name="size" class="form-control"> 
+          <div class="menu">
+            <div class="item" data-value="Small"><i class="envelope icon"></i>Small</div>
+            <div class="item" data-value="Medium"><i class="box icon"></i>Medium</div>
+            <div class="item" data-value="Large"><i class="motorcycle icon"></i>Large</div>
+            <div class="item" data-value="Huge"><i class="space shuttle icon"></i>Huge</div>
+          </div>
+      </div>
+
+        <div class="ui fluid search selection dropdown" style="max-width:200px;">
+          <div class="default text">Urgency</div>
+            <input type="hidden" name="urgency" class="form-control" >         
+            <div class="menu">
+              <div class="item" data-value="Very Urgent"><i class="shipping fast icon"></i>Very Urgent</div>
+              <div class="item" data-value="Not Urgent"><i class="truck icon"></i>Not Urgent</div>
+            </div>
+        </div>
+      
+  
+      <input type="submit" value="Filter" class="ui blue button" >
+
+    </div>
+    
+  </form>
 
 
 <h1>Jobs</h1>
@@ -56,3 +70,4 @@
     </div>
   <% end %>
 </div>
+
