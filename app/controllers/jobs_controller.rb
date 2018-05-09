@@ -42,6 +42,15 @@ class JobsController < ApplicationController
   end
 
   #post
+  def premium
+    @job = Job.find(params[:id])
+    @job.premium = true
+    @job.save
+    redirect_to root_path
+  end
+  
+
+  #post
   def makemove
     @move = Move.new
     @move.user = current_user
