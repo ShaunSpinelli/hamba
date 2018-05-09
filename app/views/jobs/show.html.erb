@@ -83,6 +83,7 @@
   </div>
 <% elsif @job.user == current_user %>
   <%=content_tag(:div, "No one has shown interest yet", class:"header")  %>
+  <%= link_to "Make Job Premium", new_charge_path({:id => @job.id}) unless @job.premium %>
   <%= link_to "Edit Job", edit_job_path(@job)%>
 <% else %>
 <%= apply_job(@job)%>
