@@ -27,7 +27,7 @@ module JobsHelper
     end
 
     def tag_colour(job)
-        job.urgency == "Very" ? col = "red" : col = "teal"
+        job.urgency == "Very Urgent" ? col = "red" : col = "teal"
         return content_tag(:a,"#{job.urgency}", class:"ui #{col} ribbon label")
     end
 
