@@ -61,3 +61,6 @@ gem "cloudinary", "~> 1.9"
 
 # for authentication
 gem "rolify"
+
+#for payments
+gem "stripe"
