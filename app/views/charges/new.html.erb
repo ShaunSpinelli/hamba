@@ -1,0 +1,20 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>For $5.00 you can make your ad premium and it will be featured on the home page</span>
+    </label>
+  </article>
+
+    <%= hidden_field_tag :job_id, @job_id %>
+    
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Premium Ad"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
