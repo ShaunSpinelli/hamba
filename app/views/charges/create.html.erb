@@ -1,0 +1,16 @@
+<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<h3>Your ad is now premium</h3>
+<p>Wait to be reidrected to the home page or click the link below</p>
+<%= link_to "submit", premium_jobs_path({:id => @job}),method: :post,id:"update_premium" %>
+
+
+
+<head>
+   <script>
+   function autoSubmit() {
+     document.getElementById("update_premium").click();
+   }
+   setTimeout(autoSubmit, 4000);
+   </script>
+
+ </head>
