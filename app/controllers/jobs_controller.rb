@@ -6,7 +6,13 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    
     @jobs = Job.all
+    
+    if params[:user_id] != nil
+      @jobs = User.find(params[:user_id]).jobs
+    end
+    
     # filtering_params(params).each do |key, value|
     #   @jobs = @jobs.public_send(key, value) unless value.empty?
     # end 
