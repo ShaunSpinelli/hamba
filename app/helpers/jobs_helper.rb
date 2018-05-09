@@ -13,7 +13,7 @@ module JobsHelper
         if Move.where(user_id: current_user.id , job_id: job.id).exists?
             return content_tag(:p, "You have applied for this job")
         else
-            return link_to 'Apply For Job', makemove_jobs_path(@job), method: :post, class: 'ui posi    tive button'
+            return link_to 'Apply For Job', makemove_jobs_path(@job), method: :post, class: 'ui positive button'
         end
     end
     
@@ -35,6 +35,12 @@ module JobsHelper
         distance = Geocoder::Calculations.distance_between([job.pick_up.latitude,job.pick_up.longitude], [job.drop_off.latitude,job.drop_off.longitude])
         '%.1f' % distance * 1.6
     end
+
+    def user_jobs()
+        link_to "Your Job Postings", jobs_path(user_id: current_user.id),class: 'ui button' unless current_user.jobs.empty?
+    end
+    
+
 
 end
 
