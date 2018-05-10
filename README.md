@@ -14,7 +14,7 @@
 
 ------------------
 
-Link : [hamba.com](https://secret-bayou-78543.herokuapp.com/)
+Link : [hamba.com](https://obscure-tor-56499.herokuapp.com/)
 
 ## 1. Summary
 
