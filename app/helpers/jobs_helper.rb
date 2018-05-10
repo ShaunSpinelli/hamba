@@ -37,7 +37,9 @@ module JobsHelper
     end
 
     def user_jobs()
+        if user_signed_in?
         link_to "Your Job Postings", jobs_path(user_id: current_user.id),class: 'ui button' unless current_user.jobs.empty?
+        end
     end
     
     def pending(job)
