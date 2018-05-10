@@ -211,7 +211,7 @@ The following code review was done by [Revel Roestorf](https://github.com/revelr
 
 ------------------
 
-* Add Stripe Connect so that when a jop poster pays a move hamba get a percentage.
+* Add Stripe Connect so that when a job poster pays a move hamba get a percentage.
 
 * Add internal messaging system.
 
