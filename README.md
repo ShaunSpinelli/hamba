@@ -40,7 +40,7 @@ A lot of web browsing is done on the phone so it was important for this web web 
 
 3. Set up environmental variables by creating a ``.env`` file in the root on the directory and updating the following values.
 
-```text
+```ruby
 
 HAMBA_DATABASE_PASSWORD=
 GOOGLE_API_MAPS=
