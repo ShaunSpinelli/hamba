@@ -81,7 +81,7 @@ now in the console run
 
 ------------------
 
-![user stories](app\assets\images\userstories.png)
+![user stories](\app\assets\images\userstories.png)
 
 ## 4. Wire framing
 
@@ -89,40 +89,40 @@ now in the console run
 
 Browse Jobs
 
-![Browse Jobs](app\assets\images\browsejobs.png)
+![Browse Jobs](\app\assets\images\browsejobs.png)
 
 Individual Job
 
-![Show Job](app\assets\images\jobshow.png)
+![Show Job](\app\assets\images\jobshow.png)
 
 Applications for job seen by job poster
 
-![Applicants](app\assets\images\applications.png)
+![Applicants](\app\assets\images\applications.png)
 
 Login Screen
 
-![Login](app\assets\images\login.png)
+![Login](\app\assets\images\login.png)
 
 Profile
 
-![Profile](app\assets\images\profile.png)
+![Profile](\app\assets\images\profile.png)
 
 
 ## 5. User Journeys
 
 ------------------
 
-![user journey of a visitor](app\assets\images\ujvister.png)
+![user journey of a visitor](\app\assets\images\ujvister.png)
 
-![user journey of a mover](app\assets\images\ujmover.png)
+![user journey of a mover](\app\assets\images\ujmover.png)
 
-![user journey of a job poster](app\assets\images\ujjopposter.png)
+![user journey of a job poster](\app\assets\images\ujjopposter.png)
 
 ## 6. Entity Relationship Diagram
 
 ------------------
 
- ![entity relation diagram](app\assets\images\ERD.png)
+ ![entity relation diagram](\app\assets\images\ERD.png)
 
 ## 7. List of Tools Used
 
@@ -180,7 +180,7 @@ Trello was used to manage and plan the project.
 
 Project Board can be viewed at [**Trello**](https://trello.com/b/Qc5k3uvb/hamba-double-sided-market-place)
 
-![trello boards](app\assets\images\trelloboard.png)
+![trello boards](\app\assets\images\trelloboard.png)
 
 [**Git**](https://git-scm.com/) was used for version control. A master was originally created with the base rails app. When ever a new feature was to be added (a user story) a new branch would be created and worked on. Once complete it would be merged with the master branch.
 
@@ -198,7 +198,7 @@ View branches [here](https://github.com/ShaunSpinelli/hamba/branches/yours)
 
 * **UI** - all style related changes
 
-![git branches](app\assets\images\branches.png)
+![git branches](\app\assets\images\branches.png)
 
 
 ## 9. Future Updates
