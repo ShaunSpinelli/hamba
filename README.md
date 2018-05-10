@@ -74,7 +74,7 @@ development:
 
 now in the console run
 
-``$ rails db:migrate``- this will set up
+``$ rails db:migrate``- this will set up the database
 
 
 ## 3. User Stories
@@ -201,6 +201,11 @@ View branches [here](https://github.com/ShaunSpinelli/hamba/branches/yours)
 
 ![git branches](/app/assets/images/branches.png)
 
+Code reviews were done during different situations throughout out the project.
+
+The following code review was done by [Revel Roestorf](https://github.com/revelroestorf) after I asked for some advice on my views.
+
+![coder review comment](/app/assets/images/codereview.png)
 
 ## 9. Future Updates
 
