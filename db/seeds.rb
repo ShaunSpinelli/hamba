@@ -10,7 +10,8 @@ password = 'pass123'
   User.create(
     email: "user-#{i}@example.com",
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    rating: i.to_s
   )
   
 end
@@ -25,3 +26,9 @@ end
   User.find(8).update(first_name: "Justin", last_name: "Time")
   User.find(9).update(first_name: "Holly ", last_name: "Sherbert")
   User.find(10).update(first_name: "Davi ", last_name: "Copperfield")
+
+#create admin
+  User.create(email: "admin@admin.com", password: password, password_confirmation: password)
+  User.find(11).update(first_name: "Admin", last_name: "Admin")
+  User.find(11).add_role :admin
+  
