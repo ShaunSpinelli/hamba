@@ -1,7 +1,7 @@
 module UsersHelper
 
     def visiter_check(user) # helper method run in view to check who the vister is
-        if user == current_user
+        if user == current_user or current_user.has_role? :admin
             owner(user)
         else
             guest(user)
