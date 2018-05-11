@@ -6,6 +6,7 @@ class Job < ApplicationRecord
   accepts_nested_attributes_for :pick_up
   accepts_nested_attributes_for :drop_off
   resourcify
+  validates :size, :description, :urgency, :charge, presence: true
 
   # scope(:size, -> (size) { where("size like ?", "%#{size}%")})
 
