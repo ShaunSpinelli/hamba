@@ -48,7 +48,27 @@ module JobsHelper
         end
     end
     
+    def urgency_icon(job)
+        job.urgency == "Very Urgent" ?  content_tag(:i, nil ,class: "shipping fast icon") : content_tag(:i,nil ,class: "truck icon")
+    end
 
+    def size_icon(job)
+
+        case job.size
+        when "Small"
+            content_tag(:i, nil ,class: "envelope icon")
+        when "Medium"
+            content_tag(:i, nil ,class: "box icon")            
+        when "Large"
+            content_tag(:i, nil ,class: "motorcycle icon")        
+        when "Huge"
+            content_tag(:i, nil ,class: "space shuttle icon")
+        else
+            content_tag(:i, nil ,class: "box icon")            
+        end
+
+    end
+    
 
 end
 

@@ -49,7 +49,7 @@
           </div>
           <div class="statistic">
             <div class="value">
-            <i class="shipping fast icon"></i>
+            <%=urgency_icon(@job)%>
                <%= @job.urgency%> 
             </div>
             <div class="label">
@@ -58,7 +58,7 @@
           </div>
           <div class="statistic">
             <div class="value">
-              <i class="box icon"></i> <%= @job.size%>
+              <%=size_icon(@job)%> <%= @job.size%>
             </div>
             <div class="label">
             </div>
