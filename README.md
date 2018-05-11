@@ -14,7 +14,7 @@
 
 ------------------
 
-Link : [hamba.com](https://obscure-tor-56499.herokuapp.com/)
+Link : [hambahamba.com](https://hambahamba.herokuapp.com/)
 
 ## 1. Summary
 
@@ -32,7 +32,7 @@ A lot of web browsing is done on the phone so it was important for this web web 
 
 ------------------
 
-1. Clone [git hub repo](https://github.com/ShaunSpinelli/hamba)
+1. Clone/Download [git hub repo](https://github.com/ShaunSpinelli/hamba)
 
 2. While in the root of the **hamba** file in the console run.
 
